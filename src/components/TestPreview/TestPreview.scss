@@ -40,3 +40,10 @@
 .typing-container {
   margin-right: 60px;
 }
+
+.stats-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}

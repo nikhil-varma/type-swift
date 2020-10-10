@@ -2,6 +2,7 @@
 import React, {PureComponent} from 'react';
 import TestInput from '../TestInput/TestInput';
 import Timer from '../Timer/Timer';
+import StatsView from '../StatsView/StatsView';
 import './TestPreview.scss';
 
 type Props = {
@@ -68,15 +69,12 @@ export default class TestPreview extends PureComponent<Props, State> {
         <div className="typing-container">
           <div className="source-text">
             <div className="preview-text">{this.getParsedText(testInput)}</div>
-            <div className="state-preview">
-              <div className="stats">
-                <span className="wpm-stat">{wordCount}</span>
-                <span className="info">wpm</span>
-              </div>
+            <div className="stats-preview">
               <Timer
                 handleEndState={this.handleEndState}
                 intervalInSeconds={timeInSeconds}
               />
+              <StatsView wordCount={wordCount} />
             </div>
           </div>
           <TestInput
