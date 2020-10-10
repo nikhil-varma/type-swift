@@ -14,6 +14,7 @@ type State = {
   wordCount: number,
   disabled: boolean,
   timeInSeconds: number,
+  score: number,
 };
 export default class TestContainer extends PureComponent<Props, State> {
   constructor(props: Props) {
@@ -22,7 +23,8 @@ export default class TestContainer extends PureComponent<Props, State> {
       testInput: '',
       wordCount: 0,
       disabled: false,
-      timeInSeconds: 30,
+      timeInSeconds: 10,
+      score: 0,
     };
   }
 
@@ -52,19 +54,25 @@ export default class TestContainer extends PureComponent<Props, State> {
     const words = previewText.split(' ');
     const input = testInput.split(' ');
     let wordCount = 0;
+    let score = 0;
     input.forEach((i, idx) => {
       if (words[idx] === i) {
         wordCount += 1;
+        score += 10;
+      }
+      if (words[idx] !== i) {
+        score -= 5;
       }
     });
     this.setState({
       disabled: true,
       wordCount: Math.ceil((wordCount * 100) / 60),
+      score,
     });
   };
 
   render() {
-    const {testInput, wordCount, disabled, timeInSeconds} = this.state;
+    const {testInput, wordCount, disabled, timeInSeconds, score} = this.state;
     return (
       <div className="test">
         <div className="typing-container">
@@ -75,7 +83,7 @@ export default class TestContainer extends PureComponent<Props, State> {
                 handleEndState={this.handleEndState}
                 intervalInSeconds={timeInSeconds}
               />
-              <StatsView wordCount={wordCount} />
+              <StatsView wordCount={wordCount} score={score} />
             </div>
           </div>
           <TestInput
