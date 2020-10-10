@@ -1,0 +1,20 @@
+.timer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background: #fbfbfb;
+  padding: 20px;
+  box-shadow: inset 0 1px 10px -5px rgba(0, 0, 0, 0.35);
+  border: 1px solid #eaeaea;
+
+  .seconds {
+    font-size: 2rem;
+    color: #6d6d6d;
+    padding-right: 5px;
+  }
+  .info {
+    line-height: 16px;
+    font-size: 0.8rem;
+    padding-top: 6px;
+  }
+}
