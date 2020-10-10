@@ -52,18 +52,17 @@ export default class TestContainer extends PureComponent<Props, State> {
     const {testInput} = this.state;
     const {previewText} = this.props;
     const words = previewText.split(' ');
-    const input = testInput.split(' ');
+    const input = testInput ? testInput.split(' ') : [];
     let wordCount = 0;
     let score = 0;
     input.forEach((i, idx) => {
       if (words[idx] === i) {
         wordCount += 1;
-        score += 10;
-      }
-      if (words[idx] !== i) {
+      } else {
         score -= 5;
       }
     });
+    score = wordCount * 10 - score;
     this.setState({
       disabled: true,
       wordCount: Math.ceil((wordCount * 100) / 60),
