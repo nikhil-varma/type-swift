@@ -1,0 +1,33 @@
+{
+    "env": {
+      "commonjs": true,
+      "es6": true,
+      "node": true,
+      "browser": true
+    },
+    "extends": [    
+      "airbnb",
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:jsx-a11y/recommended",
+      "plugin:prettier/recommended",
+      "plugin:prettier/recommended",
+      "plugin:flowtype/recommended"
+    ],
+      "parserOptions": {
+      "ecmaVersion": 2018
+    },
+    "plugins": [
+      "flowtype", 
+      "prettier"
+    ],
+    "rules": {
+      "no-console": "error",
+      "react/default-props-match-prop-types": [
+        "error", { "allowRequiredDefaults": false }
+      ],
+      "react/require-default-props":0,
+      "no-unused-vars":"error",
+      "no-unused-expressions":"off"
+    }
+  }

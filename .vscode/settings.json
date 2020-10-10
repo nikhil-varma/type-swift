@@ -1,0 +1,6 @@
+{
+    "editor.formatOnSave": true,
+    "workbench.colorCustomizations": {
+        "editorUnnecessaryCode.border": "#dd7aab"
+      },
+}
