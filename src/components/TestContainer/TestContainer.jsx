@@ -62,7 +62,7 @@ export default class TestContainer extends PureComponent<Props, State> {
         score -= 5;
       }
     });
-    score = wordCount * 10 - score;
+    score = wordCount * 10 + score;
     this.setState({
       disabled: true,
       wordCount: Math.ceil((wordCount * 100) / 60),
