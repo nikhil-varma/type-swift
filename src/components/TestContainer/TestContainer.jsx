@@ -23,7 +23,7 @@ export default class TestContainer extends PureComponent<Props, State> {
       testInput: '',
       wordCount: 0,
       disabled: false,
-      timeInSeconds: 10,
+      timeInSeconds: 60,
       score: 0,
     };
   }
